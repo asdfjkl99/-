@@ -1,0 +1,6 @@
+하노이 타워 알고리즘
+// n = 1, 디스크를 start -> goal로 이동
+
+1. n-1 디스크를  start -> temp로 이동
+2. 디스크 n을 start -> goal로 이동
+3. n-1 디스크를 temp -> goal로 이동
