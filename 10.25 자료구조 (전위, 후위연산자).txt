@@ -1,0 +1,6 @@
+infix -> postfix
+* key idea
+1) input의 첫번째 항부터 마지막 항 까지 검사
+2) operand는 순서 변경 없이 output으로 옮겨짐
+3) stack을 이용해서 operator를 저장 단, stack에 자신보다 연산자 우선순위가 같거나 높은 연산자가 있으면 꺼내서 output으로 옮김
+4) 입력 scanning이 끝나면 스택에 남아있는 모든 연산자들을 output으로 옮김
