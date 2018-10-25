@@ -33,7 +33,7 @@ public:
 
 	int getPosition_x() { return pos_x; }
 	int getPosition_y() { return pos_y; }
-	char getShape() { return shape; }
+	char* getShape() { return &shape; }
 	bool moveAlert() { return move_flag; }
 };
 
@@ -65,9 +65,9 @@ public:
 class Screen
 {
 private:
-	static const int screen_size_x = 119;
-	static const int screen_size_y = 29;
-	char screen[screen_size_x + 1][screen_size_y];
+	static const int screen_size_x = 40;
+	static const int screen_size_y = 27;
+	char *screen[screen_size_y][screen_size_x + 1];
 	bool is_wall;
 	bool is_item;
 	int move_count;
@@ -76,28 +76,39 @@ private:
 public:
 	Screen() : is_wall(FALSE), is_item(FALSE), move_count(0), remain_item(0)
 	{
-		for (int i = 0; i <= screen_size_x; i++)
-			for (int j = 0; j < screen_size_y; j++)
-				screen[i][j] = ' ';
+		for (int i = 0; i < screen_size_y; i++)
+			for (int j = 0; j < screen_size_x; j++)
+				screen[i][j] = "бс";
+
+		for (int i = 0; i <= screen_size_y; i++)
+			screen[i][screen_size_x] = "\0";
 	};
 
 	void draw()
 	{
 		printf(" [ Monster World (Basic) ] \n");
 
-		for (int i = 0; i <= screen_size_x; i++)
-			printf("%s", screen[i]);
+		for (int i = 0; i <= screen_size_y; i++)
+		{
+			for (int j = 0; i <= screen_size_x; j++)
+			{
+				printf("%s", screen[i][j]);
+			}
+
+			printf("\n");
+		}
+
+		Sleep(60);
+		system("cls");
 	}
 
 	void update()
 	{
-		for (int i = 0; i < screen_size_y; i++)
-			screen[screen_size_x][i] = NULL;
 		
 
 	}
 
-	char setScreen (char inc, int x, int y)
+	void setScreen (char* inc, int x, int y)
 	{
 		screen[x][y] = inc;
 	}
@@ -132,7 +143,6 @@ void main()
 		screen.MovecountUp(goblin.moveAlert());
 		screen.MovecountUp(star.moveAlert());
 		screen.MovecountUp(ghost.moveAlert());
-
 
 		screen.draw();
 	}
