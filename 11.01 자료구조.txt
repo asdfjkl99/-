@@ -1,0 +1,8 @@
+1. Node 생성 (1st_Node = data(int) + next(reference) : 8bytes)
+2. head = &1st_Node
+3. Insert Node
+3-1) Insert Front (head를 top으로 보면 스택의 개념)
+① newNode.next = head
+② head = newNode
+3-2) Insert Rear : if(head->next->···->next == nullptr) ···->next = &newNode
+
