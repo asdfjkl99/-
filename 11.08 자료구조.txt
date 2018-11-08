@@ -1,0 +1,16 @@
+Remove(x)
+1. 삭제할 노드의 앞 노드를 찾는다. (before)
+①  rNode = before ->next
+② before ->next = before->next->next (or rNode->next)
+2. 메모리 반환
+free(rNode)
+
+* special cases
+1) 삭제할 노드가 첫번째 노드인가?
+- before노드가 존재하지 않음.
+2) 노드가 하나밖에 없을 경우
+- head->next 를 null로 만들어 주어야함.
+
+- 양방향 연결리스트 ( Doubly Linked List)
+장점 : 이전 노드 검색 가능.
+단점 : 메모리 차지량이 증가.
