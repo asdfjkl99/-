@@ -1,0 +1,18 @@
+Tree Traversal
+- Depth 우선
+- Breath 우선
+
+1. Queue 생성
+2. root 노드를 enqueue()
+3. dequeue()를 한 후, 해당 노드의  children node를 enqueue()
+*이 과정을 queue가 empty가 될때까지 반복
+
+- BST 구현(Binary Search Tree)
+함수 insert()
+      search()
+
+struct bstNode{
+	int  data;
+	struct bstNode* left
+	struct bstNode* right
+}
